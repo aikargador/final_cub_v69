@@ -1,0 +1,74 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execution.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 20:10:39 by aikram            #+#    #+#             */
+/*   Updated: 2023/11/20 21:13:53 by aikram           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub69d.h"
+
+bool	mlx_starter(t_able *table)
+{
+	table->mlx.mlx = mlx_init();
+	if (!table->mlx.mlx)
+		return (free_table(table));
+	table->mlx.win = mlx_new_window(table->mlx.mlx, WIDTH, HEIGHT, "mlx");
+	if (!table->mlx.win)
+		return (free_table(table));
+	table->mlx.img = new_image(table, false);
+	if (!table->mlx.img)
+		return (free_table(table));
+	if (init_texture(table))
+		return (false);
+	mlx_hook(table->mlx.win, 03, 1L << 1, &handle_keyrelease, table);
+	mlx_hook(table->mlx.win, 02, 1L << 0, &handle_keypress, table);
+	mlx_loop_hook(table->mlx.mlx, &main_loop, table);
+	mlx_loop(table->mlx.mlx);
+	return (true);
+}
+
+void	plr_init(t_able *table)
+{
+	if (table->parse->pdir == 'N')
+	{
+		table->plr.dir.y = -1;
+		table->plane.x = -0.80;
+	}
+	else if (table->parse->pdir == 'S')
+	{
+		table->plr.dir.y = 1;
+		table->plane.x = 0.80;
+	}
+	else if (table->parse->pdir == 'W')
+	{
+		table->plr.dir.x = 1;
+		table->plane.y = -0.80;
+	}
+	else
+	{
+		table->plr.dir.x = -1;
+		table->plane.y = 0.80;
+	}
+	table->plr.pos.x = table->parse->pos.x;
+	table->plr.pos.y = table->parse->pos.y;
+	table->plr.mv_spd = 0.03;
+	table->plr.rt_spd = 0.025;
+}
+
+int	eggsecute(t_parse *parse)
+{
+	t_able	table;
+
+	ft_bzero(&table, sizeof(t_able));
+	table.parse = parse;
+	texture_path_match(&table);
+	plr_init(&table);
+	if (!mlx_starter(&table))
+		return (69);
+	return (0);
+}
