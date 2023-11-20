@@ -16,6 +16,7 @@ bool	chk_valid_file(char *str, char *type)
 {
 	bool	dir_chk;
 
+	dir_chk = false;
 	if (!ft_strncmp("./", str, 2))
 		str += 2;
 	else if (!ft_strncmp("~/", str, 2))

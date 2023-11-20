@@ -60,12 +60,17 @@ void	plr_init(t_able *table)
 	table->plr.rt_spd = 0.025;
 }
 
+void	init_table(t_able *table, t_parse *parse)
+{
+	ft_bzero(table, sizeof(t_able));
+	table->parse = parse;
+}
+
 int	eggsecute(t_parse *parse)
 {
 	t_able	table;
 
-	ft_bzero(&table, sizeof(t_able));
-	table.parse = parse;
+	init_table(&table, parse);
 	texture_path_match(&table);
 	plr_init(&table);
 	if (!mlx_starter(&table))

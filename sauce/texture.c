@@ -54,6 +54,9 @@ bool	init_texture(t_able *table)
 	if (!table->swen_tx)
 		return (free_table(table));
 	while (++i < 4)
+		table->swen_tx[i] = NULL;
+	i = -1;
+	while (++i < 4)
 	{
 		table->swen_tx[i] = malloc((TEXDIM * TEXDIM) * sizeof(size_t));
 		if (!table->swen_tx[i])

@@ -30,7 +30,7 @@ bool	free_table(t_able *table)
 		free(table->mlx.img);
 	if (table->mlx.mlx)
 		free(table->mlx.mlx);
-	while (++i < 4)
+	while (++i < 4 && table->swen_tx)
 		free(table->swen_tx[i]);
 	if (table->swen_tx)
 		free(table->swen_tx);
