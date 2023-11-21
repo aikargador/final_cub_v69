@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:51:27 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/20 21:13:59 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:28:25 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 # define PIN (PIW / 2)
 # define PIS ((3 * PIW) / 2)
 # define TEXDIM 256
+# define MINT "mlx init failed!\n"
+# define MWIN "mlx window failed!\n"
+# define MIMG "mlx image failed!\n"
+# define AIPP "tmp.img memory allocation failed!\n"
+# define AIP "tmp.img[] memory allocation failed!\n"
+# define MXTI "xpm to img failed!\n"
+# define MGDA_SUSO "failed to retrieve data addr!\n"
 
 # ifdef __APPLE__
 # define WIDTH 2250
@@ -112,8 +119,8 @@ typedef struct	s_table {
 	int			col;
 }				t_able;
 
-bool	free_table(t_able *table);
-int	ultimate_destroyer(t_able *table);
+bool	free_table(t_able *table, char *msg);
+int		ultimate_destroyer(t_able *table);
 
 void	texture_path_match(t_able *table);
 

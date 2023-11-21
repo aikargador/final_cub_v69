@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 20:10:39 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/20 21:13:53 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:20:20 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ bool	mlx_starter(t_able *table)
 {
 	table->mlx.mlx = mlx_init();
 	if (!table->mlx.mlx)
-		return (free_table(table));
+		return (free_table(table), MINT);
 	table->mlx.win = mlx_new_window(table->mlx.mlx, WIDTH, HEIGHT, "mlx");
 	if (!table->mlx.win)
-		return (free_table(table));
+		return (free_table(table), MWIN);
 	table->mlx.img = new_image(table, false);
 	if (!table->mlx.img)
-		return (free_table(table));
+		return (free_table(table), MIMG);
 	if (init_texture(table))
 		return (false);
 	mlx_hook(table->mlx.win, 03, 1L << 1, &handle_keyrelease, table);

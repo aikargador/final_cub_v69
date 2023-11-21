@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:21:30 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/20 21:18:24 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:28:31 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ bool	load_texture(t_able *table, size_t *tex, char *path)
 	ft_memset(yx, -1, sizeof(int) * 2);
 	tmp.img = mlx_xpm_file_to_image(table->mlx.mlx, path, &txhw, &txhw);
 	if (!tmp.img)
-		return (false);
+		return (print_and_return(MXTI));
 	tmp.addr = (int *)mlx_get_data_addr(tmp.img, &tmp.bpp, &tmp.line_len, \
 	&tmp.endian);
 	if (!tmp.addr)
-		return (false);
+		return (print_and_return(MGDA_SUSO));
 	while (++yx[0] < TEXDIM)
 	{
 		yx[1] = -1;
@@ -52,7 +52,7 @@ bool	init_texture(t_able *table)
 	i = -1;
 	table->swen_tx = malloc(4 * sizeof(size_t *));
 	if (!table->swen_tx)
-		return (free_table(table));
+		return (free_table(table, AIPP));
 	while (++i < 4)
 		table->swen_tx[i] = NULL;
 	i = -1;
@@ -60,7 +60,7 @@ bool	init_texture(t_able *table)
 	{
 		table->swen_tx[i] = malloc((TEXDIM * TEXDIM) * sizeof(size_t));
 		if (!table->swen_tx[i])
-			return (free_table(table));
+			return (free_table(table, AIP));
 		if (!load_texture(table, table->swen_tx[i], table->swen_pth[i]))
 			return (free_table(table));
 	}
