@@ -20,11 +20,15 @@
 # define PIE (PIW * 2)
 # define PIN (PIW / 2)
 # define PIS ((3 * PIW) / 2)
-
-# define WIDTH 2250
-# define HEIGHT 1250
 # define TEXDIM 256
 
+# ifdef __APPLE__
+# define WIDTH 2250
+# define HEIGHT 1250
+# else
+# define WIDTH 1250
+# define HEIGHT 750
+# endif
 
 # define DARK_BLUE 0x00000032
 # define DARK_BROWN 0x00320000
