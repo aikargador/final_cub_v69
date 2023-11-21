@@ -1,4 +1,5 @@
 NAME = cub69d
+LIB_ARC = ./libft/libft.a
 UNAME := $(shell uname)
 
 
@@ -27,9 +28,11 @@ OBJS = ${SAUCE:c=o}
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${LIB_ARC}
 	${CC} ${OBJS} $(CXXFLAGS) -o ${NAME}
 
+${LIB_ARC}: libft
+	make -C libft
 
 all: ${NAME}
 
@@ -39,6 +42,14 @@ clean:
 fclean: clean
 	${RM} ${NAME}
 
+clib:
+	make clean -C libft
+
+fclib : clib
+	make fclean -C libft
+
+fall : fclib fclean
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean clib fclean fclib re

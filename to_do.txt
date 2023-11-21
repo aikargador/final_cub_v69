@@ -1,1 +1,3 @@
 destroy the images in each cycle and push and then chk leaks from laptop!
+
+enable the mouse press event to detect the cross on the tab!

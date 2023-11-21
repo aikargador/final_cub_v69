@@ -1,4 +1,4 @@
-NAME    = libft.a
+NAME = libft.a
 
 MANDATORY_SRCS = ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c  ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c\
 					ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c\
@@ -14,7 +14,7 @@ BONUS_SRCS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_b
 M_OBJS = $(MANDATORY_SRCS:.c=.o)
 B_OBJS = $(BONUS_SRCS:.c=.o)
 
-LIBCR   = ar -rc
+LIBCR   = ar -rcs
 CC      = gcc
 RM      = rm -f
 CFLAGS  = -Wall -Wextra -Werror -I../includes
