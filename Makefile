@@ -1,4 +1,4 @@
-NAME = cub69d
+NAME = cub3D
 LIB_ARC = ./libft/libft.a
 UNAME := $(shell uname)
 
@@ -21,7 +21,7 @@ UTILS = ${addprefix utils/, }
 PARSE = ${addprefix parse/, ft_error p_check p_cpy_map p_init p_map \
 		p_map_utilis p_parse p_text_utilis p_texture p_wall p_wall_utilis parsing_utils}
 SAUCE = ${addprefix sauce/, ${addsuffix .c, execution movement ray_cast \
-		events window texture movement_director movement_handler error_handler main ${UTILS} ${PARSE}}}
+		events window texture movement_director movement_handler error_handler parse_assist main ${UTILS} ${PARSE}}}
 OBJS = ${SAUCE:c=o}
 
 

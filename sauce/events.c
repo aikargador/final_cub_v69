@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 20:39:28 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/20 21:05:05 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/22 12:22:51 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,44 @@
 
 int	handle_keypress(int keysym, t_able *table)
 {
-	if (keysym == 0)
+	if (keysym == A)
 		table->keys[0] = true;
-	else if (keysym == 1)
+	else if (keysym == S)
 		table->keys[1] = true;
-	else if (keysym == 2)
+	else if (keysym == D)
 		table->keys[2] = true;
-	else if (keysym == 13)
+	else if (keysym == W)
 		table->keys[3] = true;
-	else if (keysym == 123)
+	else if (keysym == LEFT)
 		table->keys[4] = true;
-	else if (keysym == 124)
+	else if (keysym == RIGHT)
 		table->keys[5] = true;
 	return (0);
 }
 
 int	handle_keyrelease(int keysym, t_able *table)
 {
-	if (keysym == 0)
+	if (keysym == A)
 		table->keys[0] = false;
-	else if (keysym == 1)
+	else if (keysym == S)
 		table->keys[1] = false;
-	else if (keysym == 2)
+	else if (keysym == D)
 		table->keys[2] = false;
-	else if (keysym == 13)
+	else if (keysym == W)
 		table->keys[3] = false;
-	else if (keysym == 123)
+	else if (keysym == LEFT)
 		table->keys[4] = false;
-	else if (keysym == 124)
+	else if (keysym == RIGHT)
 		table->keys[5] = false;
-	else if (keysym == 53)
+	else if (keysym == ESC)
 		exit (ultimate_destroyer(table));
 	return (0);
+}
+
+int	mouse_hook(t_able *table)
+{
+	ultimate_destroyer(table);
+	exit (0);
 }
 
 int	main_loop(t_able *table)

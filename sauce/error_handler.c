@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:24:22 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/21 15:23:05 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/22 12:36:41 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ bool	free_table(t_able *table, const char *msg)
 	i = -1;
 	if (msg)
 		write(STDERR_FILENO, msg, ft_strlen(msg));
+	(void)table;
 	if (table->mlx.win)
 		mlx_destroy_window(table->mlx.mlx, table->mlx.win);
 	if (table->mlx.img)
@@ -41,6 +42,6 @@ bool	free_table(t_able *table, const char *msg)
 int	ultimate_destroyer(t_able *table)
 {
 	free_table(table, NULL);
-	free_parser(table->parse);
+	free_memory(table->parse, table->data);
 	return (0);
 }

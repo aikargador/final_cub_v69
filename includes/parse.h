@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 21:00:10 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/20 21:11:10 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/22 11:52:44 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_RELEASE 3
 # define X_EVENT_EXIT 17
-
-# define WIN_W 832
-# define WIN_H 640
-# define STEP_SIZE 30.00
-# define FOV 60.00
-# define ROTATION_ANGLE 0.17
-# define PI 3.1415926535898
-# define CUBE_SIZE 64.00
 
 // keys
 # define ESC 53
@@ -74,42 +66,42 @@ typedef struct s_icords {
 
 typedef struct s_imap
 {
-	int	fd;
-	int	line_count;
+	int		fd;
+	int		line_count;
 	char	*path;
 	char	**file;
-	int	height;
-	int	width;
-	int	end_idx;
-} t_imap;
+	int		height;
+	int		width;
+	int		end_idx;
+}	t_imap;
 
 typedef struct s_parse
 {
-	t_icords	pos;
-	char	**map;
-	int	num_lines;
-	char	**text;
-	char	*no_text;
-	char	*so_text;
-	char	*we_text;
-	char	*ea_text;
+	t_icords		pos;
+	char			**map;
+	int				num_lines;
+	char			**text;
+	char			*no_text;
+	char			*so_text;
+	char			*we_text;
+	char			*ea_text;
 	unsigned int	floor_color;
 	unsigned int	cclr;
-	size_t	column;
-	size_t	row;
-	int	*floor;
-	int	*ceiling;
-	char	pdir;
-	t_imap	imap;
-} t_parse;
+	size_t			column;
+	size_t			row;
+	int				*floor;
+	int				*ceiling;
+	char			pdir;
+	t_imap			imap;
+}	t_parse;
 
 typedef struct s_data
 {
-	t_parse	*parse;
-	double	angle_increment;
+	t_parse			*parse;
+	double			angle_increment;
 	unsigned int	**buffer;
-	int	previous;
-} t_data;
+	int				previous;
+}	t_data;
 
 bool	chk_valid_file(char *str, char *type);
 bool	chk_cub_and_xmp(char *str, bool cub);

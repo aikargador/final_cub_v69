@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:47:35 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/19 18:47:36 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/22 12:38:51 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,13 @@ int	check_front(char **map, int j, int i)
 
 int	print_err(char *info, char *str, int code)
 {
-	ft_putstr_fd("cub3D: Error", 2);
+	ft_putstr_fd("Error\n", 2);
 	if (info)
-	{
-		ft_putstr_fd(": ", 2);
 		ft_putstr_fd(info, 2);
-	}
-	if (str)
-	{
+	if (info && str)
 		ft_putstr_fd(": ", 2);
+	if (str)
 		ft_putstr_fd(str, 2);
-	}
 	ft_putstr_fd("\n", 2);
 	return (code);
 }
@@ -59,7 +55,7 @@ void	void_free_arr(void **str)
 
 int	print_err_val(int detail, char *str, int code)
 {
-	ft_putstr_fd("cub3D: Error: ", 2);
+	ft_putstr_fd("Error\n: ", 2);
 	ft_putnbr_fd(detail, 2);
 	ft_putstr_fd(": ", 2);
 	ft_putstr_fd(str, 2);

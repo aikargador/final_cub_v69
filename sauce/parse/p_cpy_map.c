@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:47:50 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/19 18:47:51 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/23 23:27:42 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,28 @@ static size_t	find_biggest_len(t_imap *map, int i)
 	return (biggest_len);
 }
 
-static void	change_space_into_wall(t_parse *parse)
-{
-	int	i;
-	int	j;
+// static void	change_space_into_wall(t_parse *parse)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (parse->map[i])
-	{
-		j = 0;
-		while (parse->map[i][j] == ' ' || parse->map[i][j] == '\t'
-		|| parse->map[i][j] == '\r'
-		|| parse->map[i][j] == '\v' || parse->map[i][j] == '\f')
-			j++;
-		while (parse->map[i][++j])
-		{
-			if (parse->map[i][j] == ' '
-				&& j < (int)ft_strlen(parse->map[i]))
-				parse->map[i][j] = '1';
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (parse->map[i])
+// 	{
+// 		j = 0;
+// 		while (parse->map[i][j] == ' ' || parse->map[i][j] == '\t'
+// 		|| parse->map[i][j] == '\r'
+// 		|| parse->map[i][j] == '\v' || parse->map[i][j] == '\f')
+// 			j++;
+// 		while (parse->map[i][++j])
+// 		{
+// 			if (parse->map[i][j] == ' '
+// 				&& j < (int)ft_strlen(parse->map[i]))
+// 				parse->map[i][j] = ' ';
+// 		}
+// 		i++;
+// 	}
+// }
 
 static int	count_map_lines(t_parse *parse, char **file, int i)
 {
@@ -107,6 +107,6 @@ int	create_map(t_parse *parse, char **file, int i)
 		return (FAILURE);
 	if (check_wall_elements_2(parse, -1, -1, 0) == FAILURE)
 		return (FAILURE);
-	change_space_into_wall(parse);
+	// change_space_into_wall(parse);
 	return (SUCCESS);
 }

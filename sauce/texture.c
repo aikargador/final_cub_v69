@@ -6,7 +6,7 @@
 /*   By: aikram <aikram@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:21:30 by aikram            #+#    #+#             */
-/*   Updated: 2023/11/21 15:28:31 by aikram           ###   ########.fr       */
+/*   Updated: 2023/11/22 11:46:00 by aikram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ bool	init_texture(t_able *table)
 		if (!table->swen_tx[i])
 			return (free_table(table, AIP));
 		if (!load_texture(table, table->swen_tx[i], table->swen_pth[i]))
-			return (free_table(table));
+			return (free_table(table, NULL));
 	}
 	return (false);
 }
